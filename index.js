@@ -1,4 +1,4 @@
-/**
+/*
  * Tres formas de almacenar valores en memoria en javascript:
  *      let: se puede modificar
  *      var: se puede modificar
@@ -18,48 +18,67 @@ app.use(express.json());
 // Indicamos el puerto en el que vamos a desplegar la aplicación
 const port = process.env.PORT || 8080;
 
-// Arrancamos la aplicación
-app.listen(port, () => {
-  console.log(`Servidor desplegado en puerto: ${port}`);
-});
+//NOTA: Tanto las variables de concesionarios y oches podrían estar vacíos
+// Definimos una estructura de datos para los coches.
+// Esto podría estar vacío, tanto esto os
+// (Esta también será temporal hasta incorporar la base de datos.)
 
-// Definimos una estructura de datos
-// (temporal hasta incorporar una base de datos)
-let coches = [
-  { marca: "Renault", modelo: "Clio" },
-  { marca: "Nissan", modelo: "Skyline R34" },
+const coches = [
+    { modelo: "Clio", cv: 120, precio: 25000 },
+    { modelo: "GTR", cv: 300, precio: 2500 },
 ];
 
-// Lista todos los coches
-app.get("/coches", (request, response) => {
-  response.json(coches);
+//Definimos la estructura de datos para los concesionarios
+// (Esta será temporal hasta implementar la base de datos)
+let concesionarios = [{
+    nombre: "Concesionario Antonio Jesus",
+    direccion: "C/ Comiditas s/n",
+    coches: coches,
+}];
+
+//===========================ENDPOINT CONCESIONARIOS======================
+
+// Devuelve una lista con todos los concesionarios
+app.get("/concesionarios/", (_request, response) => {
+    response.json(concesionarios);
 });
 
-// Añadir un nuevo coche
-app.post("/coches", (request, response) => {
-  coches.push(request.body);
-  response.json({ message: "ok" });
+// Lista todos los concesionarios
+app.post("/concesionarios/", (request, response) => {
+    concesionarios.push(request.body);
+    response.json({ message: "ok" });
 });
 
-// Obtener un solo coche
-app.get("/coches/:id", (request, response) => {
-  const id = request.params.id;
-  const result = coches[id];
-  response.json({ result });
+// Obtener un solo concesionario
+app.get("/concesionarios/:id", (request, response) => {
+    const id = request.params.id;
+    const result = concesionarios[id];
+    response.json({ result });
 });
 
-// Actualizar un solo coche
-app.put("/coches/:id", (request, response) => {
-  const id = request.params.id;
-  coches[id] = request.body;
-  response.json({ message: "ok" });
+// Actualizar un solo concesionario
+app.put("/concesionarios/:id", (request, response) => {
+    const id = request.params.id;
+    concesionarios[id] = request.body;
+    response.json({ message: "ok" });
 });
 
-// Borrar un elemento del array
-app.delete("/coches/:id", (request, response) => {
-  const id = request.params.id;
-  coches = coches.filter((item) => coches.indexOf(item) !== id);
-
-  response.json({ message: "ok" });
+// Borrar un solo conesionario
+app.delete("/concesionarios/:id", (request, response) => {
+    const id = request.params.id;
+    concesionarios = concesionarios.filter((item) =>
+        concesionarios.indexOf(item) !== id
+    );
+    response.json({ message: "ok" });
 });
 
+
+// Iniciamos el servidor
+app.listen(port, (err) => {
+    if (err) {
+        console.log(
+            `Ha ocurrido un error mientras se iniciaba el servidor\n${err.message}`,
+        );
+    }
+    console.log(`Servidor desplegado en puerto: ${port}`);
+});
