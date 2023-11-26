@@ -143,7 +143,7 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
    </details>
 
-6. **Obtener todos los coches pertenecientes a un concesionario:**
+1. **Obtener todos los coches pertenecientes a un concesionario:**
    <details>
     <summary><code>GET</code> <code><b>/concesionarios/:id/coches</b></code></summary>
 
@@ -165,7 +165,7 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
    </details>
 
-7. **Añadir un nuevo coche perteneciente a un concesionario:**
+2. **Añadir un nuevo coche perteneciente a un concesionario:**
    <details>
     <summary><code>POST</code> <code><b>/concesionarios/:id/coches</b></code></summary>
 
@@ -188,7 +188,7 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
    </details>
 
-8. **Obtener un solo coche de un concesionario por ID de concesionario y ID de coche:**
+3. **Obtener un solo coche de un concesionario por ID de concesionario y ID de coche:**
    <details>
     <summary><code>GET</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
 
@@ -211,7 +211,7 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
    </details>
 
-9. **Actualizar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
+4. **Actualizar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
    <details>
     <summary><code>PUT</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
 
@@ -235,7 +235,7 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
    </details>
 
-9. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
+5. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
 
    <details>
     <summary><code>DELETE</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
