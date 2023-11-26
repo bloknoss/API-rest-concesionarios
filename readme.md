@@ -217,6 +217,7 @@ Los endpoints estarán documentados abajo.
 
    </details>
 
+
 4. **Actualizar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
 
    <details>
@@ -242,8 +243,12 @@ Los endpoints estarán documentados abajo.
 
    </details>
 
+<<<<<<< HEAD
 
 5. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
+=======
+9. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
+>>>>>>> c04c741 (Confusion entre actualizar y borrar)
 
    <details>
     <summary><code>DELETE</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
