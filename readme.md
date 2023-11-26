@@ -1,6 +1,6 @@
-# Concesio-API
+# ConcesioAPI
 
-Concesio-API es una REST API creada en NodeJS mediante Express que tiene como objetivo el proporcionar unos endpoints para poder modificar / acceder datos sobre distintos concesionarios y sus respectivos coches de manera cómoda y sencilla.
+ConcesioAPI es una REST API creada en NodeJS mediante Express que tiene como objetivo el proporcionar unos endpoints para poder modificar / acceder datos sobre distintos concesionarios y sus respectivos coches de manera cómoda y sencilla.
 
 ## Instalación
 
