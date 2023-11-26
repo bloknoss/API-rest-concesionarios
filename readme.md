@@ -217,11 +217,8 @@ Los endpoints estarán documentados abajo.
 
    </details>
 
-<<<<<<< HEAD
 4. **Actualizar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
-=======
-9. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
->>>>>>> 2c631b8 (Borrar->Eliminar)
+
    <details>
     <summary><code>PUT</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
 
@@ -244,6 +241,7 @@ Los endpoints estarán documentados abajo.
    > ```
 
    </details>
+
 
 5. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
 
