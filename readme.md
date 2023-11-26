@@ -1,3 +1,39 @@
+# Concesio-API
+
+Concesio-API es una REST API creada en NodeJS mediante Express que tiene como objetivo el proporcionar unos endpoints para poder modificar / acceder datos sobre distintos concesionarios y sus respectivos coches de manera cómoda y sencilla.
+
+## Instalación
+
+Usa el gestor de paquetes de node [npm](https://www.npmjs.com/) para instalar las dependencias.
+
+```bash
+git clone https://github.com/bloknoss/API-rest-concesionarios.git
+cd ./API-rest-concesionarios
+npm i
+```
+
+## Guía de Uso
+Una vez dentro del directorio del repositorio, y habiendo seguido la guia de instalación, realizamos el siguiente comando:
+```bash
+npm start
+```
+Con esto se debería de iniciar el servidor, y para realizar una llamada a la API, podemos ejecutar el comando [curl](https://curl.se/docs/) en la terminal para comprobar que funciona corretamente (Ajustar el comando según los cambios que hayas realizado):
+
+**Entrada:**
+```bash
+curl -X GET http://localhost:8080/concesionarios
+```
+**Salida:**
+
+![image](https://i.imgur.com/YVzFlDg.png)
+
+Se puede apreciar que el comando curl nos ha devuelto un texto en formato JSON con los concesionarios, en lugar de un error, con esto se demostraría que funciona correctamente.
+> **_NOTA:_** También se podría utilizar [Postman](https://www.postman.com/), tanto su versión CLI como su GUI, y sería igualmente de válido..
+
+
+## Endpoints
+Por defecto, la ruta base o la IP donde estará el servidor de forma local será localhost, o [http://localhost](http://localhots), a través de esto accederemos a los distintos endpoints de nuestra aplicación.
+
 1. **Obtener todos los concesionarios:**
    <details>
     <summary><code>GET</code> <code><b>/concesionarios/</b></code></summary>
