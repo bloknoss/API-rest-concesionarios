@@ -235,7 +235,7 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
    </details>
 
-9. **Actualizar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
+10. **Actualizar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
 
    <details>
     <summary><code>DELETE</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
