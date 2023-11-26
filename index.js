@@ -1,4 +1,3 @@
-// Importamos el framework Express
 const express = require("express");
 
 // Inicializamos la aplicación
@@ -10,9 +9,10 @@ app.use(express.json());
 // Indicamos el puerto en el que vamos a desplegar la aplicación
 const port = process.env.PORT || 8080;
 
-// NOTA: Tanto las variables de concesionarios y oches podrían estar vacíos
+
+//NOTA: Tanto las variables de concesionarios y oches podrían estar vacíos
 // Definimos una estructura de datos para los coches.
-// Esto podría estar vacío, tanto esta como la de coches, pero de esta manera ya existiran datos de ejemplo.
+// Esto podría estar vacío, tanto esto os
 // (Esta también será temporal hasta incorporar la base de datos.)
 
 const coches = [
@@ -20,7 +20,7 @@ const coches = [
     { modelo: "GTR", cv: 300, precio: 2500 },
 ];
 
-// Definimos la estructura de datos para los concesionarios
+//Definimos la estructura de datos para los concesionarios
 // (Esta será temporal hasta implementar la base de datos)
 let concesionarios = [{
     nombre: "Concesionario Antonio Jesus",
@@ -57,10 +57,15 @@ app.put("/concesionarios/:id", (request, response) => {
 app.delete("/concesionarios/:id", (request, response) => {
     const id = request.params.id;
     concesionarios = concesionarios.filter((item) =>
+
         concesionarios.indexOf(item) != id
+
+
+
     );
     response.json({ message: "ok" });
 });
+
 
 // Devuelve todos los coches pertenecientes a un concesionario
 app.get("/concesionarios/:id/coches", (request, response) => {
