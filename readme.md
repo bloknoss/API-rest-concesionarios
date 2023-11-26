@@ -30,9 +30,12 @@ curl -X GET http://localhost:8080/concesionarios
 Se puede apreciar que el comando curl nos ha devuelto un texto en formato JSON con los concesionarios, en lugar de un error, con esto se demostraría que funciona correctamente.
 > **_NOTA:_** También se podría utilizar [Postman](https://www.postman.com/), tanto su versión CLI como su GUI, y sería igualmente de válido..
 
+## Endpoints - Configuración
+Por defecto, la ruta base o la IP donde estará el servidor de forma local será localhost, o [http://localhost](http://localhost/), a través de esto accederemos a los distintos endpoints de nuestra aplicación.
+Estos endpoints están divididos entre las dos secciones que puedes acceder, los concesionarios y los coches, los coches pertenecen a los concesionarios, se deberá acceder a los coches mediante la id del concesionario.
+Los endpoints estarán documentados abajo.
 
-## API Endpoints -
-Por defecto, la ruta base o la IP donde estará el servidor de forma local será localhost, o [http://localhost](http://localhots), a través de esto accederemos a los distintos endpoints de nuestra aplicación.
+## API Endpoints - Concesinarios
 
 1. **Obtener todos los concesionarios:**
    <details>
@@ -99,7 +102,7 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
    </details>
 
 4. **Actualizar un solo concesionario por ID:**
-   <details>
+   <details>string
     <summary><code>PUT</code> <code><b>/concesionarios/:id</b></code></summary>
 
    ##### Parametros
@@ -143,22 +146,25 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
    </details>
 
+
+## API Endpoints - Coches
+
 1. **Obtener todos los coches pertenecientes a un concesionario:**
    <details>
-    <summary><code>GET</code> <code><b>/concesionarios/:id/coches</b></code></summary>
+   <summary><code>GET</code> <code><b>/concesionarios/:id/coches</b></code></summary>
 
-   ##### Parametros
+##### Parametros
    > | Nombre    | Tipo      | Tipo de dato   | Descripción                                   |
    > |-----------|-----------|----------------|-----------------------------------------------|
    > | id        | requerido | cadena         | ID del concesionario a obtener                |
 
-   ##### Respuestas
+##### Respuestas
    > | Código HTTP | Content-Type                     | Respuesta                    |
    > |-------------|----------------------------------|------------------------------|
    > | `200`       | `application/json`               | Lista de coches en formato JSON |
    > | `404`       | `application/json`               | Concesionario no encontrado  |
 
-   ##### Ejemplo cURL
+##### Ejemplo cURL
    > ```bash
    > curl -X GET http://localhost:8080/concesionarios/1/coches
    > ```
@@ -167,21 +173,21 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
 2. **Añadir un nuevo coche perteneciente a un concesionario:**
    <details>
-    <summary><code>POST</code> <code><b>/concesionarios/:id/coches</b></code></summary>
+   <summary><code>POST</code> <code><b>/concesionarios/:id/coches</b></code></summary>
 
-   ##### Parametros
+##### Parametros
    > | Nombre    | Tipo      | Tipo de dato                | Descripción                                   |
    > |-----------|-----------|-----------------------------|-----------------------------------------------|
    > | id        | requerido | cadena                      | ID del concesionario al que pertenece el coche |
    > | body      | requerido | objeto (JSON o YAML)        | Datos del nuevo coche en formato JSON          |
 
-   ##### Respuestas
+##### Respuestas
    > | Código HTTP | Content-Type                     | Respuesta                    |
    > |-------------|----------------------------------|------------------------------|
    > | `200`       | `application/json`               | `{"message":"ok"}`           |
    > | `404`       | `application/json`               | Concesionario no encontrado  |
 
-   ##### Ejemplo cURL
+##### Ejemplo cURL
    > ```bash
    > curl -X POST -H "Content-Type: application/json" --data @nuevo_coche.json http://localhost:8080/concesionarios/1/coches
    > ```
@@ -190,21 +196,21 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
 3. **Obtener un solo coche de un concesionario por ID de concesionario y ID de coche:**
    <details>
-    <summary><code>GET</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
+   <summary><code>GET</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
 
-   ##### Parametros
+##### Parametros
    > | Nombre    | Tipo      | Tipo de dato   | Descripción                                   |
    > |-----------|-----------|----------------|-----------------------------------------------|
    > | id        | requerido | cadena         | ID del concesionario a obtener                |
    > | cocheId   | requerido | cadena         | ID del coche a obtener                       |
 
-   ##### Respuestas
+##### Respuestas
    > | Código HTTP | Content-Type                     | Respuesta                    |
    > |-------------|----------------------------------|------------------------------|
    > | `200`       | `application/json`               | Coche en formato JSON        |
    > | `404`       | `application/json`               | Coche no encontrado           |
 
-   ##### Ejemplo cURL
+##### Ejemplo cURL
    > ```bash
    > curl -X GET http://localhost:8080/concesionarios/1/coches/0
    > ```
@@ -213,22 +219,22 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
 4. **Actualizar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
    <details>
-    <summary><code>PUT</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
+   <summary><code>PUT</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
 
-   ##### Parametros
+##### Parametros
    > | Nombre    | Tipo      | Tipo de dato                | Descripción                                   |
    > |-----------|-----------|-----------------------------|-----------------------------------------------|
    > | id        | requerido | cadena                      | ID del concesionario al que pertenece el coche |
    > | cocheId   | requerido | cadena                      | ID del coche a actualizar                    |
    > | body      | requerido | objeto (JSON o YAML)        | Datos actualizados del coche en formato JSON |
 
-   ##### Respuestas
+##### Respuestas
    > | Código HTTP | Content-Type                     | Respuesta                    |
    > |-------------|----------------------------------|------------------------------|
    > | `200`       | `application/json`               | `{"message":"ok"}`           |
    > | `404`       | `application/json`               | Coche no encontrado           |
 
-   ##### Ejemplo cURL
+##### Ejemplo cURL
    > ```bash
    > curl -X PUT -H "Content-Type: application/json" --data @coche_actualizado.json http://localhost:8080/concesionarios/1/coches/0
    > ```
@@ -238,26 +244,23 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 5. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
 
    <details>
-    <summary><code>DELETE</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
+   <summary><code>DELETE</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
 
-   ##### Parametros
+##### Parametros
    > | Nombre    | Tipo      | Tipo de dato   | Descripción                                   |
    > |-----------|-----------|----------------|-----------------------------------------------|
    > | id        | requerido | cadena         | ID del concesionario al que pertenece el coche |
    > | cocheId   | requerido | cadena         | ID del coche a borrar                        |
 
-   ##### Respuestas
+##### Respuestas
    > | Código HTTP | Content-Type                     | Respuesta                    |
    > |-------------|----------------------------------|------------------------------|
    > | `200`       | `application/json`               | `{"message":"ok"}`           |
    > | `404`       | `application/json`               | Coche no encontrado           |
 
-   ##### Ejemplo cURL
+##### Ejemplo cURL
    > ```bash
    > curl -X DELETE http://localhost:8080/concesionarios/1/coches/0
    > ```
 
-   </details>
-
-
-
+</details>
