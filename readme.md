@@ -31,7 +31,7 @@ Se puede apreciar que el comando curl nos ha devuelto un texto en formato JSON c
 > **_NOTA:_** También se podría utilizar [Postman](https://www.postman.com/), tanto su versión CLI como su GUI, y sería igualmente de válido..
 
 
-## API Endpoints
+## API Endpoints -
 Por defecto, la ruta base o la IP donde estará el servidor de forma local será localhost, o [http://localhost](http://localhots), a través de esto accederemos a los distintos endpoints de nuestra aplicación.
 
 1. **Obtener todos los concesionarios:**
@@ -121,7 +121,7 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
    </details>
 
-5. **Borrar un solo concesionario por ID:**
+5. **Eliminar un solo concesionario por ID:**
    <details>
     <summary><code>DELETE</code> <code><b>/concesionarios/:id</b></code></summary>
 
@@ -211,7 +211,7 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 
    </details>
 
-9. **Actualizar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
+9. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
    <details>
     <summary><code>PUT</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
 
