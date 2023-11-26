@@ -35,6 +35,7 @@ Por defecto, la ruta base o la IP donde estará el servidor de forma local será
 Estos endpoints están divididos entre las dos secciones que puedes acceder, los concesionarios y los coches, los coches pertenecen a los concesionarios, se deberá acceder a los coches mediante la id del concesionario.
 Los endpoints estarán documentados abajo.
 
+
 ## API Endpoints - Concesinarios
 
 1. **Obtener todos los concesionarios:**
@@ -216,7 +217,11 @@ Los endpoints estarán documentados abajo.
 
    </details>
 
+<<<<<<< HEAD
 4. **Actualizar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
+=======
+9. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
+>>>>>>> 2c631b8 (Borrar->Eliminar)
    <details>
     <summary><code>PUT</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
 
