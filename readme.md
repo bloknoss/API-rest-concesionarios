@@ -263,3 +263,18 @@ Los endpoints estarán documentados abajo.
    > ```
 
    </details>
+
+
+
+
+## Dependencias de Node
+Estas son las dependecias de la API Rest en Node
+```json
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+```
+
+- [Express](https://www.npmjs.com/package/express) - Framework que nos permite montar la API Rest.
+- [Nodemon](https://www.npmjs.com/package/nodemon) - Realiza recargas al detectar guardados en el archivo.
