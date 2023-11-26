@@ -278,3 +278,13 @@ Estas son las dependecias de la API Rest en Node
 
 - [Express](https://www.npmjs.com/package/express) - Framework que nos permite montar la API Rest.
 - [Nodemon](https://www.npmjs.com/package/nodemon) - Realiza recargas al detectar guardados en el archivo.
+
+## Contribuciones
+Las Contribuciones son una parte esencial de los proyectos open source, por lo tanto toda contribucion a este proyecto se agradece enormemente.
+Si estas interesado en contribuir al proyecto, puedes hacer lo siguiente:
+1. Clona el proyecto (git clone https://github.com/bloknoss/ConcesioAPI.git
+2. Crea una rama para la feature que quieras crear (git branch | git checkout -b /feature/nombreDeFuncion)
+3. Haz commit a tus cambios. (git commit -m "Añadir funcion")
+4. Haz push (git push origin feature/nombreDeFuncion)
+
+
