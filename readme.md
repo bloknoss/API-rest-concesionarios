@@ -149,7 +149,6 @@ Los endpoints estarán documentados abajo.
 ## API Endpoints - Coches
 
 1. **Obtener todos los coches pertenecientes a un concesionario:**
->>>>>>> 92bb795 (FIX - 2 (Colapsan bien (denuevo)))
    <details>
     <summary><code>GET</code> <code><b>/concesionarios/:id/coches</b></code></summary>
 
@@ -291,7 +290,6 @@ Los endpoints estarán documentados abajo.
    </details>
 
 5. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
-=======
 
    <details>
    <summary><code>DELETE</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
@@ -321,6 +319,15 @@ Eastas son las dependecias de la API Rest en Node
 ```json
   "dependencies": {
   aaaa  "express": "^4.18.2",
+=======
+
+
+
+## Dependencias de Node
+Estas son las dependecias de la API Rest en Node
+```json
+  "dependencies": {
+    "express": "^4.18.2",
     "nodemon": "^3.0.1"
   }
 ```
