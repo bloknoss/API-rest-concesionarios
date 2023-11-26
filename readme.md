@@ -37,27 +37,27 @@ Se puede apreciar que el comando curl nos ha devuelto un texto en formato JSON c
 
 ## API Endpoints - Concesinarios
 
-    1. **Obtener todos los concesionarios:**
-       <details>
-        <summary><code>GET</code> <code><b>/concesionarios/</b></code></summary>
+1. **Obtener todos los concesionarios:**
+  <details>
+  <summary><code>GET</code> <code><b>/concesionarios/</b></code></summary>
 
-       ##### Parametros
-       > Ninguno
+  ##### Parametros
+  > Ninguno
 
-       ##### Respuestas
-       > | Código HTTP | Content-Type                     | Respuesta                                      |
-       > |-------------|----------------------------------|------------------------------------------------|
-       > | `200`       | `application/json`               | Lista de concesionarios en formato JSON         |
-       > | `500`       | `application/json`               | Error interno del servidor                      |
+  ##### Respuestas
+  > | Código HTTP | Content-Type                     | Respuesta                                      |
+  > |-------------|----------------------------------|------------------------------------------------|
+  > | `200`       | `application/json`               | Lista de concesionarios en formato JSON         |
+  > | `500`       | `application/json`               | Error interno del servidor                      |
 
-       ##### Ejemplo cURL
-       > ```bash
-       > curl -X GET http://localhost:8080/concesionarios/
-       > ```
+  ##### Ejemplo cURL
+  > ```bash
+  > curl -X GET http://localhost:8080/concesionarios/
+  > ```
 
-       </details>
+  </details>
 
-    2. **Añadir un nuevo concesionario:**
+  2. **Añadir un nuevo concesionario:**
        <details>
         <summary><code>POST</code> <code><b>/concesionarios/</b></code></summary>
 
@@ -79,27 +79,27 @@ Se puede apreciar que el comando curl nos ha devuelto un texto en formato JSON c
 
        </details>
 
-    3. **Obtener un solo concesionario por ID:**
-       <details>
-        <summary><code>GET</code> <code><b>/concesionarios/:id</b></code></summary>
+3. **Obtener un solo concesionario por ID:**
+   <details>
+     <summary><code>GET</code> <code><b>/concesionarios/:id</b></code></summary>
 
-       ##### Parametros
-       > | Nombre    | Tipo      | Tipo de dato   | Descripción                                   |
-       > |-----------|-----------|----------------|-----------------------------------------------|
-       > | id        | requerido | cadena         | ID del concesionario a obtener                |
+  ##### Parametros
+  > | Nombre    | Tipo      | Tipo de dato   | Descripción                                   |
+  > |-----------|-----------|----------------|-----------------------------------------------|
+  > | id        | requerido | cadena         | ID del concesionario a obtener                |
 
-       ##### Respuestas
-       > | Código HTTP | Content-Type                     | Respuesta                    |
-       > |-------------|----------------------------------|------------------------------|
-       > | `200`       | `application/json`               | Concesionario en formato JSON |
-       > | `404`       | `application/json`               | Concesionario no encontrado  |
+  ##### Respuestas
+  > | Código HTTP | Content-Type                     | Respuesta                    |
+  > |-------------|----------------------------------|------------------------------|
+  > | `200`       | `application/json`               | Concesionario en formato JSON |
+  > | `404`       | `application/json`               | Concesionario no encontrado  |
 
-       ##### Ejemplo cURL
-       > ```bash
-       > curl -X GET http://localhost:8080/concesionarios/1
-       > ```
+  ##### Ejemplo cURL
+   > ```bash
+   > curl -X GET http://localhost:8080/concesionarios/1
+    ```
 
-       </details>
+   </details>
 
 4. **Actualizar un solo concesionario por ID:**
    <details>
