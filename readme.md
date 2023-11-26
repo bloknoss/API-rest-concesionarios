@@ -289,42 +289,8 @@ Los endpoints estarán documentados abajo.
 
    </details>
 
-5. **Eliminar un solo coche perteneciente a un concesionario por ID de concesionario y ID de coche:**
-
-   <details>
-   <summary><code>DELETE</code> <code><b>/concesionarios/:id/coches/:cocheId</b></code></summary>
-
-##### Parametros
-   > | Nombre    | Tipo      | Tipo de dato   | Descripción                                   |
-   > |-----------|-----------|----------------|-----------------------------------------------|
-   > | id        | requerido | cadena         | ID del concesionario al que pertenece el coche |
-   > | cocheId   | requerido | cadena         | ID del coche a borrar                        |
-
-##### Respuestas
-   > | Código HTTP | Content-Type                     | Respuesta                    |
-   > |-------------|----------------------------------|------------------------------|
-   > | `200`       | `application/json`               | `{"message":"ok"}`           |
-   > | `404`       | `application/json`               | Coche no encontrado           |
-
-##### Ejemplo cURL
-   > ```bash
-   > curl -X DELETE http://localhost:8080/concesionarios/1/coches/0
-   > ```
-
-   </details>
-
-
 ## Dependencias de Node
 Eastas son las dependecias de la API Rest en Node
-```json
-  "dependencies": {
-  aaaa  "express": "^4.18.2",
-=======
-
-
-
-## Dependencias de Node
-Estas son las dependecias de la API Rest en Node
 ```json
   "dependencies": {
     "express": "^4.18.2",
