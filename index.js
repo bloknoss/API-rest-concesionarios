@@ -10,12 +10,7 @@ app.use(express.json());
 // Indicamos el puerto en el que vamos a desplegar la aplicación
 const port = process.env.PORT || 8080;
 
-
-
-
-
 // NOTA: Tanto las variables de concesionarios y oches podrían estar vacíos
-
 // Definimos una estructura de datos para los coches.
 // Esto podría estar vacío, tanto esta como la de coches, pero de esta manera ya existiran datos de ejemplo.
 // (Esta también será temporal hasta incorporar la base de datos.)
