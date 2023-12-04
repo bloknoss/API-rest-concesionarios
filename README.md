@@ -272,13 +272,17 @@ Estas son las dependecias de la API Rest en Node
 ```json
   "dependencies": {
     "express": "^4.18.2",
+    "helmet": "^7.1.0",
     "mongodb": "6.3.0",
     "nodemon": "^3.0.1",
   }
 ```
 
+- [MongoDB](https://www.npmjs.com/package/mongodb) - Driver de MongoDB en NodeJS que nos permite conectar con la Base de datos..
 - [Express](https://www.npmjs.com/package/express) - Framework que nos permite montar la API Rest.
 - [Nodemon](https://www.npmjs.com/package/nodemon) - Realiza recargas al detectar guardados en el archivo.
+- [Helmet](https://www.npmjs.com/package/helmet)   - Libreria Middleware que aporta seguridad a la API mediante headers..
+
 
 ## Contribuciones
 Las Contribuciones son una parte esencial de los proyectos open source, por lo tanto toda contribucion a este proyecto se agradece enormemente.
