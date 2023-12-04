@@ -34,3 +34,32 @@ async function dbFindMany(search = {}) {
         conn.close();
     }
 }
+
+
+async function dbInsert(item) {
+    const conn = new MongoClient(`${db_uri}/${db_name}`);
+
+    try {
+        const collection = conn.db().collection(`${collection_name}`);
+        const results = await collection.insertOne(item);
+        return results;
+    } catch (err) {
+        console.error(err);
+    } finally {
+        conn.close();
+    }
+}
+
+async function dbDeleteOne(id) {
+    const conn = new MongoClient(`${db_uri}/${db_name}`);
+    try {
+        const collection = conn.db().collection(`${collection_name}`);
+        const results = await collection.findOneAndDelete({ _id: id });
+
+        return results;
+    } catch (err) {
+        console.error(err);
+    } finally {
+        conn.close();
+    }
+}
