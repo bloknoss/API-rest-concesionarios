@@ -112,3 +112,11 @@ async function parseObjectId(id) {
         conn.close();
     }
 }
+
+
+module.exports.dbFindOne = dbFindOne;
+module.exports.dbFindMany = dbFindMany;
+module.exports.parseObjectId = parseObjectId;
+module.exports.dbDeleteOne = dbDeleteOne;
+module.exports.dbInsert = dbInsert;
+module.exports.dbUpdateConcesionario = dbUpdateConcesionario;
