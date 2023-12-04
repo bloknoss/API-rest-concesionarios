@@ -4,17 +4,20 @@ const express = require("express");
 // Inicializamos la aplicación
 const app = express();
 
+//Importamos las funciones de bases de datos
+const { dbFindOne, dbFindMany, parseObjectId, dbInsert, dbDeleteOne, dbUpdateConcesionario } = require("./db_utils");
+
+
 // Indicamos que la aplicación puede recibir JSON (API Rest)
 app.use(express.json());
 
 // Indicamos el puerto en el que vamos a desplegar la aplicación
 const port = process.env.PORT || 8080;
 
-// NOTA: Tanto las variables de concesionarios y oches podrían estar vacíos
+// NOTA: Tanto las variables de concesionarios y coches podrían estar vacíos
 // Definimos una estructura de datos para los coches.
 // Esto podría estar vacío, tanto esta como la de coches, pero de esta manera ya existiran datos de ejemplo.
 // (Esta también será temporal hasta incorporar la base de datos.)
-
 const coches = [
     { modelo: "Clio", cv: 120, precio: 25000 },
     { modelo: "GTR", cv: 300, precio: 2500 },
