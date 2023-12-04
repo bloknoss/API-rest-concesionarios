@@ -1,6 +1,9 @@
 // Importamos el framework Express
 const express = require("express");
 
+// Importamos helmet para añadir seguridad a nuestra API
+const helmet = require("helmet")
+
 // Inicializamos la aplicación
 const app = express();
 
@@ -9,6 +12,9 @@ const { dbFindOne, dbFindMany, parseObjectId, dbInsert, dbDeleteOne, dbUpdateCon
 
 // Indicamos que la aplicación puede recibir JSON (API Rest)
 app.use(express.json());
+
+// Añadimos el Middleware de Helmet a nuestra API (Añadera bastantes headers de protección)
+app.use(helmet())
 
 // Indicamos el puerto en el que vamos a desplegar la aplicación
 const port = process.env.PORT || 8080;
