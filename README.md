@@ -288,7 +288,7 @@ Si estas interesado en contribuir al proyecto, puedes hacer lo siguiente:
 3. Haz commit a tus cambios. (git commit -m "Añadir funcion")
 4. Haz push (git push origin feature/nombreDeFuncion)
 
-## License
+## Licencia
 
 Distribuido bajo la licencia de MIT. Lee `LICENSE` para más información.
 
