@@ -1,7 +1,7 @@
 {
   "name": "ud-4",
   "version": "1.0.0",
-  "description": "Este archivo se escribe en formato markdown.",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/RafaeldelRio/daweb.git"
+    "url": "git+https://github.com/bloknoss/concesioapi.git"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,12 @@
   "homepage": "https://github.com/RafaeldelRio/daweb#readme",
   "dependencies": {
     "express": "^4.18.2",
+    "mongodb": "^6.3.0",
     "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.0"
   }
 }

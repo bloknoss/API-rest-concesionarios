@@ -22,11 +22,13 @@ const coches = [
 
 // Definimos la estructura de datos para los concesionarios
 // (Esta será temporal hasta implementar la base de datos)
-let concesionarios = [{
-    nombre: "Concesionario Antonio Jesus",
-    direccion: "C/ Comiditas s/n",
-    coches: coches,
-}];
+let concesionarios = [
+    {
+        nombre: "Concesionario Antonio Jesus",
+        direccion: "C/ Comiditas s/n",
+        coches: coches,
+    },
+];
 
 // Devuelve una lista con todos los concesionarios
 app.get("/concesionarios/", (_request, response) => {
@@ -56,9 +58,7 @@ app.put("/concesionarios/:id", (request, response) => {
 // Borrar un solo conesionario
 app.delete("/concesionarios/:id", (request, response) => {
     const id = request.params.id;
-    concesionarios = concesionarios.filter((item) =>
-        concesionarios.indexOf(item) != id
-    );
+    concesionarios = concesionarios.filter((item) => concesionarios.indexOf(item) != id);
     response.json({ message: "ok" });
 });
 
@@ -97,9 +97,7 @@ app.put("/concesionarios/:id/coches/:cocheId", (request, response) => {
 app.delete("/concesionarios/:id/coches/:cocheId", (request, response) => {
     const id = request.params.id;
     const cocheId = request.params.cocheId;
-    concesionarios[id].coches = concesionarios[id].coches.filter((item) =>
-        concesionarios[id].coches.indexOf(item) != cocheId
-    );
+    concesionarios[id].coches = concesionarios[id].coches.filter((item) => concesionarios[id].coches.indexOf(item) != cocheId);
 
     response.json({ message: "ok" });
 });
@@ -139,9 +137,7 @@ app.put("/concesionarios/:id/coches/:cocheId", (request, response) => {
 app.delete("/concesionarios/:id/coches/:cocheId", (request, response) => {
     const id = request.params.id;
     const cocheId = request.params.cocheId;
-    concesionarios[id].coches = concesionarios[id].coches.filter((item) =>
-        concesionarios[id].coches.indexOf(item) != cocheId
-    );
+    concesionarios[id].coches = concesionarios[id].coches.filter((item) => concesionarios[id].coches.indexOf(item) != cocheId);
 
     response.json({ message: "ok" });
 });
@@ -149,9 +145,7 @@ app.delete("/concesionarios/:id/coches/:cocheId", (request, response) => {
 // Iniciamos el servidor
 app.listen(port, (err) => {
     if (err) {
-        console.log(
-            `Ha ocurrido un error mientras se iniciaba el servidor\n${err.message}`,
-        );
+        console.log(`Ha ocurrido un error mientras se iniciaba el servidor\n${err.message}`);
     }
     console.log(`Servidor desplegado en puerto: ${port}`);
 });
