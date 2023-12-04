@@ -7,8 +7,8 @@ ConcesioAPI es una REST API creada en NodeJS mediante Express que tiene como obj
 Usa el gestor de paquetes de node [npm](https://www.npmjs.com/) para instalar las dependencias.
 
 ```bash
-git clone https://github.com/bloknoss/API-rest-concesionarios.git
-cd ./API-rest-concesionarios
+git clone https://github.com/bloknoss/ConcesioAPI.git
+cd ./ConcesioAPI
 npm i
 ```
 
@@ -272,7 +272,8 @@ Estas son las dependecias de la API Rest en Node
 ```json
   "dependencies": {
     "express": "^4.18.2",
-    "nodemon": "^3.0.1"
+    "mongodb": "6.3.0",
+    "nodemon": "^3.0.1",
   }
 ```
 
