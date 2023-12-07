@@ -315,8 +315,10 @@ Si quieres echarle un vistazo más avanzado a la documentación, la UI de Swagge
 > **_NOTA:_** Esta herramienta proporciona una utilidad y facilidad para testear tal que no requeriremos de herramientas o utilidades externas tales como Postman o similares.
 
 ## Dependencias de Node
+Las dependencias de NPM que usan los proyectos en node se almacenan en **[package.json](https://www.github.com/bloknoss/concesioapi/blob/main/package.json)**   
+Existen diferentes tipos de dependencias, las **dependencias normales** que requieren los programas, y las **dependencias de desarrollo** requeridas por el desarrollador durante el desarrollo (ej: [ESLint](https://eslint.org/))  
 
-Estas son las dependecias de la API Rest en Node
+Dependencias de [NPM](https://www.npmjs.com):
 
 ```json
   "dependencies": {
@@ -329,11 +331,31 @@ Estas son las dependecias de la API Rest en Node
 ```
 
 -   [Express](https://www.npmjs.com/package/express) - Framework que nos permite montar la API Rest.
--   [Swagger UI](https://www.npmjs.com/package/swagger-ui-express) - Modulo de swagger-ui que nos permite generar los API docs facilmente en Express.
--   [MongoDB](https://www.npmjs.com/package/mongodb) - Driver de MongoDB en NodeJS que nos permite conectar con la Base de datos..
 -   [Helmet](https://www.npmjs.com/package/helmet) - Biblioteca Middleware que aporta seguridad a la API mediante headers.
--   [Nodemon](https://www.npmjs.com/package/nodemon) - Realiza recargas al detectar guardados en el archivo.
+-   [Swagger UI](https://www.npmjs.com/package/swagger-ui-express) - Modulo de Swagger UI que permite generar los API docs facilmente en Express.
+-   [MongoDB](https://www.npmjs.com/package/mongodb) - Driver de MongoDB permite crear una conexión con la base de datos.
+-   [Nodemon](https://www.npmjs.com/package/nodemon) - Realiza hot reloads (recargas automáticas) al detectar guardados en el archivo.
 
+Dependencias de desarrollo:  
+
+```json
+  "devDependencies": {
+    "eslint": "^8.55.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "prettier": "^3.1.0"
+  }
+```
+-   [ESLint](https://www.npmjs.com/package/eslint) - Herramienta para identificar errores / patrones no deseados en nuestro código.
+-   [ESLint Airbnb](https://www.npmjs.com/package/eslint-config-airbnb) - Convencion de reglas para ESLint, que aporta muchas reglas que estan popularmente aceptadas.
+-   [ESLint Prettier](https://www.npmjs.com/package/eslint-config-prettier) - Deshabilita las reglas de Prettier que tengan conflicto con ESLint
+-   [ESLint Plugin](https://www.npmjs.com/package/eslint-plugin-import) - Dependencia para evitar conflictos con import/export, y no tener errores con rutas de archivos
+-   [Prettier](https://www.npmjs.com/package/prettier) - Code formatter, Prettier está como extensión para VSCode además de NPM, y sirve para poder formatear el código con ESLint.
+
+Las dependencias de desarrollo pueden no ser necesarias, pero sí altamente recomendadas.
+> **_NOTA:_** Las dependencias de desarrollo pueden no ser necesarias, pero sí altamente recomendadas para realizar un código legible y más eficiente.
 ## Contribuciones
 
 Las Contribuciones son una parte esencial de los proyectos open source, por lo tanto toda contribucion a este proyecto se agradece enormemente.
