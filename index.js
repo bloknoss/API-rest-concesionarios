@@ -43,7 +43,7 @@ app.post("/concesionarios/", async (request, response) => {
     const newConcesionario = request.body;
     await dbInsert(newConcesionario);
 
-    response.json({ message: "ok" });
+    response.json({ message: "OK" });
 });
 
 // Obtener un solo concesionario
@@ -60,7 +60,7 @@ app.put("/concesionarios/:id", async (request, response) => {
     const coches = request.body.coches;
 
     await dbUpdateConcesionario(id, nombre, direccion, coches);
-    response.json({ message: "ok" });
+    response.json({ message: "OK" });
 });
 
 // Borrar un solo conesionario
@@ -68,7 +68,7 @@ app.delete("/concesionarios/:id", async (request, response) => {
     const id = await parseObjectId(request.params.id);
     await dbDeleteOne(id);
 
-    response.json({ message: "ok" });
+    response.json({ message: "OK" });
 });
 
 // Devuelve todos los coches pertenecientes a un concesionario
@@ -85,7 +85,7 @@ app.post("/concesionarios/:id/coches", async (request, response) => {
     concesionario.coches.push(request.body);
     dbUpdateConcesionario(id, concesionario.nombre, concesionario.direccion, concesionario.coches);
 
-    response.json({ message: "ok" });
+    response.json({ message: "OK" });
 });
 
 // Obtener un solo coche de un concesionario
@@ -105,7 +105,7 @@ app.put("/concesionarios/:id/coches/:cocheId", async (request, response) => {
     concesionario.coches[cocheId] = request.body;
     dbUpdateConcesionario(id, concesionario.nombre, concesionario.direccion, concesionario.coches);
 
-    response.json({ message: "ok" });
+    response.json({ message: "OK" });
 });
 
 // Borrar un coche en especifico
@@ -117,7 +117,7 @@ app.delete("/concesionarios/:id/coches/:cocheId", async (request, response) => {
     concesionario.coches.splice(cocheId, 1);
     dbUpdateConcesionario(id, concesionario.nombre, concesionario.direccion, concesionario.coches);
 
-    response.json({ message: "ok" });
+    response.json({ message: "OK" });
 });
 
 // Iniciamos el servidor
