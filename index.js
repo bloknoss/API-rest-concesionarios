@@ -2,7 +2,13 @@
 const express = require("express");
 
 // Importamos helmet para añadir seguridad a nuestra API
-const helmet = require("helmet")
+const helmet = require("helmet");
+
+// Importamos Swagger UI Express
+const swaggerUi = require("swagger-ui-express");
+
+// Importamos la configuración de Swagger
+const swaggerCnf = require("./swagger.json");
 
 // Inicializamos la aplicación
 const app = express();
@@ -13,8 +19,16 @@ const { dbFindOne, dbFindMany, parseObjectId, dbInsert, dbDeleteOne, dbUpdateCon
 // Indicamos que la aplicación puede recibir JSON (API Rest)
 app.use(express.json());
 
-// Añadimos el Middleware de Helmet a nuestra API (Añadera bastantes headers de protección)
-app.use(helmet())
+// Añadimos el Middleware de Helmet a nuestra API (Añaderá bastantes headers de protección)
+app.use(helmet());
+
+// Añadimos la ruta para los api-docs, configurando Swagger en el.
+app.use(
+    "/api-docs",
+    swaggerUi.serve,
+    swaggerUi.setup(swaggerCnf)
+  );
+  
 
 // Indicamos el puerto en el que vamos a desplegar la aplicación
 const port = process.env.PORT || 8080;
@@ -111,6 +125,6 @@ app.listen(port, (err) => {
     if (err) {
         console.log(`Ha ocurrido un error mientras se iniciaba el servidor\n${err.message}`);
     }
-    console.clear()
+    console.clear();
     console.log(`Servidor desplegado en puerto: ${port}`);
 });
