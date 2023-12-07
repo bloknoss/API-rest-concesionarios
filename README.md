@@ -293,6 +293,7 @@ Si estas interesado en contribuir al proyecto, puedes hacer lo siguiente:
 2. Crea una rama para la feature que quieras crear (git branch | git checkout -b /feature/nombreDeFuncion)
 3. Haz commit a tus cambios. (git commit -m "Añadir funcion")
 4. Haz push (git push origin feature/nombreDeFuncion)  
+
 Una vez realizados estos pasos, puedes iniciar una pull request para mergear tus cambios.
 
 ## Licencia
