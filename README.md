@@ -352,9 +352,9 @@ Dependencias de desarrollo:
 -   [ESLint Airbnb](https://www.npmjs.com/package/eslint-config-airbnb) - Convencion de reglas para ESLint, que aporta muchas reglas que estan popularmente aceptadas.
 -   [ESLint Prettier](https://www.npmjs.com/package/eslint-config-prettier) - Deshabilita las reglas de Prettier que tengan conflicto con ESLint
 -   [ESLint Plugin](https://www.npmjs.com/package/eslint-plugin-import) - Dependencia para evitar conflictos con import/export, y no tener errores con rutas de archivos
--   [Prettier](https://www.npmjs.com/package/prettier) - Code formatter, Prettier está como extensión para VSCode además de NPM, y sirve para poder formatear el código con ESLint.
+-   [Prettier](https://www.npmjs.com/package/prettier) - Formateador de Código, Prettier está como extensión para VSCode además de NPM, se instala como dependencia para poder formatear el código con ESLint.
 
-Las dependencias de desarrollo pueden no ser necesarias, pero sí altamente recomendadas.
+Las reglas de ESLint están definidas en [.eslintrc.json](https://github.com/bloknoss/concesioapi/blob/main/.eslintrc.json).
 > **_NOTA:_** Las dependencias de desarrollo pueden no ser necesarias, pero sí altamente recomendadas para realizar un código legible y más eficiente.
 ## Contribuciones
 
