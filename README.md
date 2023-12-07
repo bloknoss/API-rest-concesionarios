@@ -303,7 +303,7 @@ Los endpoints estarán documentados abajo.
 
 ## Documentación - Swagger
 
-Si quieres echarle un vistazo más avanzado en la configuración, la API de swagger esta configurada en `/api-docs`, desde la UI de Swagger, puedes ojear las diferentes rutas, y en caso de necesitarlo, probarlas desde la propia interfaz.
+Si quieres echarle un vistazo más avanzado a la documentación, la UI de Swagger esta configurada en `/api-docs`, desde la UI de Swagger, puedes ojear las diferentes rutas, y en caso de necesitarlo, probarlas desde la propia interfaz.
 
 -   **[swagger.json](https://github.com/bloknoss/ConcesioAPI/blob/main/swagger.json)** - El archivo de configuración de Swagger, en caso de necesitar ajustar algun parametro.
 -   **[index.js](https://github.com/bloknoss/ConcesioAPI/blob/main/index.js)** - El archivo en el que se configura la ruta del setup de Swagger en nuestra API.
