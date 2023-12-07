@@ -272,16 +272,18 @@ Estas son las dependecias de la API Rest en Node
 ```json
   "dependencies": {
     "express": "^4.18.2",
-    "helmet": "^7.1.0",
+    "swagger-ui-express": "^5.0.0",
     "mongodb": "6.3.0",
-    "nodemon": "^3.0.1",
+    "helmet": "^7.1.0",
+    "nodemon": "^3.0.1"
   }
 ```
 
-- [MongoDB](https://www.npmjs.com/package/mongodb) - Driver de MongoDB en NodeJS que nos permite conectar con la Base de datos..
 - [Express](https://www.npmjs.com/package/express) - Framework que nos permite montar la API Rest.
+- [Swagger UI](https://www.npmjs.com/package/swagger-ui-express) - Modulo de swagger-ui que nos permite generar los API docs facilmente en Express.
+- [MongoDB](https://www.npmjs.com/package/mongodb) - Driver de MongoDB en NodeJS que nos permite conectar con la Base de datos..
+- [Helmet](https://www.npmjs.com/package/helmet)   - Biblioteca Middleware que aporta seguridad a la API mediante headers.
 - [Nodemon](https://www.npmjs.com/package/nodemon) - Realiza recargas al detectar guardados en el archivo.
-- [Helmet](https://www.npmjs.com/package/helmet)   - Libreria Middleware que aporta seguridad a la API mediante headers.
 
 
 ## Contribuciones
@@ -295,4 +297,3 @@ Si estas interesado en contribuir al proyecto, puedes hacer lo siguiente:
 ## Licencia
 
 Distribuido bajo la licencia de MIT. Lee `LICENSE` para más información.
-
