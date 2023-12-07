@@ -102,7 +102,7 @@ Los endpoints estarán documentados abajo.
    </details>
 
 4. **Actualizar un solo concesionario por ID:**
-   <details>string
+   <details>
     <summary><code>PUT</code> <code><b>/concesionarios/:id</b></code></summary>
 
    ##### Parametros
