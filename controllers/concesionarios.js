@@ -1,45 +1,40 @@
-const express = require('express');
-const app = express();
+// Importamos el servicio de concesionario, este se encargará de realizar las consultas con la base de datos
+const concesionarioService =  require('../services/concesionariosServices');
 
 
 // Lista todos los concesionarios
 const getConcesionarios = async (_request, response,next) => {
-  dbFindMany().then((concesionarios) => response.json(concesionarios));
+  await concesionarioService.getConcesionarios().then(x => response.json(x));
   next();
 };
   
 // Lista los concesionarios
 const createConcesionario = async (request, response,next) => {
-  const newConcesionario = request.body;
-  await dbInsert(newConcesionario);
+
+  await concesionarioService.postConcesionario(request.body);
+  
   response.json({ message: 'OK' });
   next();
 };
   
 // Obtener un solo concesionario
 const getConcesionario = async (request, response,next) => {
-  const id = await parseObjectId(request.params.id);
-  dbFindOne(id).then((concesionario) => response.json(concesionario));
-  next();
+  const id = request.params.id;
+  await concesionarioService.getConcesionario(id).then(x => response.json(x));
 };
   
 // Actualizar un solo concesionario
 const updateConcesionario =  async (request, response,next) => {
-  const id = await parseObjectId(request.params.id);
-  const nombre = request.body.nombre;
-  const direccion = request.body.direccion;
-  const coches = request.body.coches;
-  
-  await dbUpdateConcesionario(id, nombre, direccion, coches);
+  const id = request.params.id;
+  await concesionarioService.putConcesionario(id, request.body);
   response.json({ message: 'OK' });
   next();
 };
   
 // Borrar un solo concesionario
 const deleteConcesionario  = async (request, response,next) => {
-  const id = await parseObjectId(request.params.id);
-  await dbDeleteOne(id);
-
+  const id = request.params.id;
+  await concesionarioService.deleteConcesionario(id);
   response.json({ message: 'OK' });
   next();
 };
