@@ -4,6 +4,9 @@ const express = require('express');
 // Importamos helmet para añadir seguridad a nuestra API
 const helmet = require('helmet');
 
+// Importa el cookie-parser
+const cookieParser = require('cookie-parser');
+
 // Importamos los routers para la API
 const concesionariosRouter = require('./routes/concesionarios');
 const cochesRouter = require('./routes/coches');
@@ -19,6 +22,9 @@ const app = express();
 
 // Indicamos que la aplicación puede recibir JSON (API Rest)
 app.use(express.json());
+
+// Implementamos el cookie parser
+app.use(cookieParser());
 
 // Añadimos el Middleware de Helmet a nuestra API (Añaderá bastantes headers de protección)
 app.use(helmet());
