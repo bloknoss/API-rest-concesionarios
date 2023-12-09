@@ -1,15 +1,18 @@
+// Importamos las variables de entorno
+require('dotenv').config();
+
 // Importamos el framework Express
 const express = require('express');
+
+// Importamos los routers para la API
+const concesionariosRouter = require('./routes/concesionarios');
+const cochesRouter = require('./routes/coches');
 
 // Importamos helmet para añadir seguridad a nuestra API
 const helmet = require('helmet');
 
 // Importa el cookie-parser
 const cookieParser = require('cookie-parser');
-
-// Importamos los routers para la API
-const concesionariosRouter = require('./routes/concesionarios');
-const cochesRouter = require('./routes/coches');
 
 // Importamos Swagger UI Express
 const swaggerUi = require('swagger-ui-express');
@@ -45,9 +48,9 @@ app.use(cochesRouter);
 
 // Iniciamos el servidor
 app.listen(port, (err) => {
+  console.clear();
   if (err) {
     console.log(`Ha ocurrido un error mientras se iniciaba el servidor\n${err.message}`);
   }
-  console.clear();
   console.log(`Servidor desplegado en puerto: ${port}`);
 });
