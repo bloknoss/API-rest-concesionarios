@@ -7,7 +7,7 @@ const collection_name = 'concesionarios';
 const db_uri = 'mongodb://127.0.0.1:27017';
 
 //Función para encontrar, por defecto busca la primera que aparezca
-async function dbFindOne(search = {}) {
+async function dbFindConcesionario(search = {}) {
   const conn = new MongoClient(`${db_uri}/${db_name}`);
 
   //Este codigo se va a repetir en todas las funciones
@@ -25,7 +25,7 @@ async function dbFindOne(search = {}) {
   }
 }
 
-async function dbFindMany(search = {}) {
+async function dbFindConcesionarios(search = {}) {
   //Este codigo ya esta explicado en la primera función
   const conn = new MongoClient(`${db_uri}/${db_name}`);
   try {
@@ -42,7 +42,7 @@ async function dbFindMany(search = {}) {
   }
 }
 
-async function dbInsert(item) {
+async function dbInsertConcesionario(item) {
   //Este codigo ya esta explicado en la primera función
   const conn = new MongoClient(`${db_uri}/${db_name}`);
 
@@ -59,7 +59,7 @@ async function dbInsert(item) {
   }
 }
 
-async function dbDeleteOne(id) {
+async function dbDeleteConcesionario(id) {
   //Este codigo ya esta explicado en la primera función
   const conn = new MongoClient(`${db_uri}/${db_name}`);
   try {
@@ -95,7 +95,7 @@ async function dbUpdateConcesionario(id, nombre, direccion, coches) {
         },
       }
     );
-
+      
     //Devolvemos los resultados
     return results;
   } catch (err) {
@@ -108,13 +108,13 @@ async function dbUpdateConcesionario(id, nombre, direccion, coches) {
 //Esta función es vital, se encarga de sacar el objectId recibiendo un indice
 async function parseObjectId(id) {
   const conn = new MongoClient(`${db_uri}/${db_name}`);
-
+  
   try {
     const collection = conn.db().collection(collection_name);
-
+    
     //Pillamos la array de elementos que tenemos
     const results = await collection.find().toArray();
-
+    
     //Validacion de la ID proporcionada
     //Si es un objectId, comprobamos que exista
     if (isNaN(id)) {
@@ -138,10 +138,140 @@ async function parseObjectId(id) {
   }
 }
 
+
+async function dbFindCoches(id) {
+  
+  const conn = new MongoClient(`${db_uri}/${db_name}`);
+  try {
+    const collection = conn.db().collection(collection_name);
+
+    const filter = { _id: id };
+
+    //Hacemos un update a un elemento que tenga la misma objectId que la recibida.
+    const result = await collection.findOne(filter);
+    //Devolvemos los resultados
+    return result.coches;
+  } catch (err) {
+    console.log('Ha ocurrido un error: ',err.message);
+    return {'title':'error','error_message':`${err.message}`};
+  } finally {
+    conn.close();
+  }
+}
+
+
+async function dbFindCoche(id, cocheId) {
+  
+  const conn = new MongoClient(`${db_uri}/${db_name}`);
+  try {
+    const collection = conn.db().collection(collection_name);
+
+    const filter = { _id: id };
+
+    const projection = {
+      _id: 0,  // Exclude _id field from the result
+      coche : {$arrayElemAt: ['$coches', cocheId] }  
+    };
+
+    //Hacemos un update a un elemento que tenga la misma objectId que la recibida.
+    const result = await collection.findOne(filter, { projection });
+    //Devolvemos los resultados
+    return result.coche;
+  } catch (err) {
+    console.log('Ha ocurrido un error: ',err.message);
+    return {'title':'error','error_message':`${err.message}`};
+  } finally {
+    conn.close();
+  }
+}
+
+async function dbDeleteCoche(id, cocheId) {
+  const conn = new MongoClient(`${db_uri}/${db_name}`);
+  try {
+
+    const collection = conn.db().collection(collection_name);
+    const filter = { _id: id };
+
+    const cochesActualizados = await collection.findOne(filter);
+    cochesActualizados.coches.splice(cocheId,1);
+
+    const update = {$set : {coches : cochesActualizados.coches}};
+
+    //Hacemos un update a un elemento que tenga la misma objectId que la recibida.
+    const result = await collection.updateOne(filter, update);
+
+    return result;
+
+  } catch (err) {
+    console.log(err);
+  } finally {
+    conn.close();
+  }
+}
+
+async function dbInsertCoche(id, newCoche) {
+  const conn = new MongoClient(`${db_uri}/${db_name}`);
+  try {
+
+    const collection = conn.db().collection(collection_name);
+    const filter = { _id: id };
+
+    const update = {
+      $push: { coches: newCoche }
+    };
+
+    //Hacemos un update a un elemento que tenga la misma objectId que la recibida.
+    const result = await collection.updateOne(filter, update, {upsert:true});
+
+    //Devolvemos los resultados
+    return result.coche;
+  } catch (err) {
+    console.log('Ha ocurrido un error: ',err.message);
+  } finally {
+    conn.close();
+  }
+
+}
+
+async function dbUpdateCoche(id, cocheId, coche) {
+  
+  const conn = new MongoClient(`${db_uri}/${db_name}`);
+  try {
+
+    const collection = conn.db().collection(collection_name);
+    const filter = { _id: id };
+    
+    const update = {
+      $set: { [`coches.${cocheId}`]: coche }
+    };
+
+    //Hacemos un update a un elemento que tenga la misma objectId que la recibida.
+    const result = await collection.updateOne(filter, update ,{upsert:true});
+
+    //Devolvemos los resultados
+    return result.coche;
+  } catch (err) {
+    console.log('Ha ocurrido un error: ',err.message);
+  } finally {
+    conn.close();
+  }
+}
+
+//(async() => {
+//  console.log(await dbFindCoches(await parseObjectId(2)));
+//})();
+
 //Exportamos las funciones para que se puedan importar desde el otro archivo
-module.exports.dbFindOne = dbFindOne;
-module.exports.dbFindMany = dbFindMany;
-module.exports.parseObjectId = parseObjectId;
-module.exports.dbDeleteOne = dbDeleteOne;
-module.exports.dbInsert = dbInsert;
-module.exports.dbUpdateConcesionario = dbUpdateConcesionario;
+module.exports = {
+  parseObjectId,
+  dbFindConcesionario,
+  dbInsertConcesionario,
+  dbUpdateConcesionario,
+  dbFindConcesionarios,
+  dbDeleteConcesionario,
+  dbFindCoche,
+  dbFindCoches,
+  dbInsertCoche,
+  dbUpdateCoche,
+  dbDeleteCoche
+};

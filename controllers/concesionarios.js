@@ -1,5 +1,5 @@
 // Importamos el servicio de concesionario, este se encargará de realizar las consultas con la base de datos
-const concesionarioService =  require('../services/concesionariosServices');
+const concesionarioService =  require('../services/concesionarios');
 
 
 // Lista todos los concesionarios

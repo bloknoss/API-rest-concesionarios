@@ -1,4 +1,4 @@
-const cochesService = require('../services/cochesServices');
+const cochesService = require('../services/coches');
 
 // Devuelve todos los coches pertenecientes a un concesionario
 const getCoches =  async (request, response, next) => {
@@ -20,7 +20,7 @@ const createCoche = async (request, response, next) => {
 // Obtener un solo coche de un concesionario
 const getCoche = async (request, response, next) => {
   const id = await request.params.id;
-  const cocheId = request.params.cocheId;
+  const cocheId = parseInt(request.params.cocheId);
   
   await cochesService.getCoche(id,cocheId).then(x => response.json(x));
   next();
