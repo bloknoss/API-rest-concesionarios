@@ -326,7 +326,6 @@ Dependencias de [NPM](https://www.npmjs.com):
     "swagger-ui-express": "^5.0.0",
     "mongodb": "6.3.0",
     "helmet": "^7.1.0",
-    "nodemon": "^3.0.1"
   }
 ```
 
@@ -334,7 +333,6 @@ Dependencias de [NPM](https://www.npmjs.com):
 -   [Helmet](https://www.npmjs.com/package/helmet) - Biblioteca Middleware que aporta seguridad a la API mediante headers.
 -   [Swagger UI](https://www.npmjs.com/package/swagger-ui-express) - Modulo de Swagger UI que permite generar los API docs facilmente en Express.
 -   [MongoDB](https://www.npmjs.com/package/mongodb) - Driver de MongoDB permite crear una conexión con la base de datos.
--   [Nodemon](https://www.npmjs.com/package/nodemon) - Realiza hot reloads (recargas automáticas) al detectar guardados en el archivo.
 
 Dependencias de desarrollo:  
 
@@ -345,7 +343,8 @@ Dependencias de desarrollo:
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.0",
     "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.1.0"
+    "prettier": "^3.1.0",
+    "nodemon": "^3.0.1"
   }
 ```
 -   [ESLint](https://www.npmjs.com/package/eslint) - Herramienta para identificar errores / patrones no deseados en nuestro código.
@@ -353,6 +352,7 @@ Dependencias de desarrollo:
 -   [ESLint Prettier](https://www.npmjs.com/package/eslint-config-prettier) - Deshabilita las reglas de Prettier que tengan conflicto con ESLint
 -   [ESLint Plugin](https://www.npmjs.com/package/eslint-plugin-import) - Dependencia para evitar conflictos con import/export, y no tener errores con rutas de archivos
 -   [Prettier](https://www.npmjs.com/package/prettier) - Formateador de Código, Prettier está como extensión para VSCode además de NPM, se instala como dependencia para poder formatear el código con ESLint.
+-   [Nodemon](https://www.npmjs.com/package/nodemon) - Realiza hot reloads (recargas automáticas) al detectar guardados en el archivo.
 
 Las reglas de ESLint están definidas en [.eslintrc.json](https://github.com/bloknoss/concesioapi/blob/main/.eslintrc.json).
 > **_NOTA:_** Las dependencias de desarrollo pueden no ser necesarias, pero sí altamente recomendadas para realizar un código legible y más eficiente.
