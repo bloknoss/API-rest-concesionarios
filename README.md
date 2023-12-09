@@ -325,14 +325,14 @@ Dependencias de [NPM](https://www.npmjs.com):
     "express": "^4.18.2",
     "swagger-ui-express": "^5.0.0",
     "mongodb": "6.3.0",
-    "helmet": "^7.1.0",
+    "helmet": "^7.1.0"
   }
 ```
 
 -   [Express](https://www.npmjs.com/package/express) - Framework que nos permite montar la API Rest.
 -   [Helmet](https://www.npmjs.com/package/helmet) - Biblioteca Middleware que aporta seguridad a la API mediante headers.
 -   [Swagger UI](https://www.npmjs.com/package/swagger-ui-express) - Modulo de Swagger UI que permite generar los API docs facilmente en Express.
--   [MongoDB](https://www.npmjs.com/package/mongodb) - Driver de MongoDB permite crear una conexión con la base de datos.
+-   [MongoDB](https://www.npmjs.com/package/mongodb) - Driver de MongoDB permite crear una conexión con la base de datos.  
 
 Dependencias de desarrollo:  
 
