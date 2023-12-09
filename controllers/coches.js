@@ -65,6 +65,7 @@ const deleteCoche = async (request, response, next) => {
     await cochesService.deleteCoche(id, cocheId);
 
     response.json({ message: 'OK' });
+    next();
   } catch (err) {
     console.log(`Ha ocurrido un error: ${err.message}`);
   }
