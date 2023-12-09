@@ -1,5 +1,9 @@
 const cochesService = require('../services/coches');
 
+//No voy a comentar ninguna función en profundidad, en esencia todas hacen lo mismo.
+// Sacan la id y / o la id del coche de los parametros y el id lo parsea y llama al servicio.
+
+
 // Devuelve todos los coches pertenecientes a un concesionario
 const getCoches =  async (request, response, next) => {
   
@@ -12,7 +16,7 @@ const getCoches =  async (request, response, next) => {
   }
 };
 
-
+// Crea un coche en el array de coches de concesionario
 const createCoche = async (request, response, next) => {
   try {
     const id = request.params.id;    

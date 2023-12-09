@@ -6,6 +6,39 @@ const db_name = 'concesionarios';
 const collection_name = 'concesionarios';
 const db_uri = 'mongodb://127.0.0.1:27017';
 
+//Esta función es vital, se encarga de sacar el objectId recibiendo un indice
+async function parseObjectId(id) {
+  const conn = new MongoClient(`${db_uri}/${db_name}`);
+  
+  try {
+    const collection = conn.db().collection(collection_name);
+    
+    //Pillamos la array de elementos que tenemos
+    const results = await collection.find().toArray();
+    
+    //Validacion de la ID proporcionada
+    //Si es un objectId, comprobamos que exista
+    if (isNaN(id)) {
+      id = new ObjectId(id);
+      const existsId = await collection.findOne({ _id: id });
+      //Condicion ternaria para comprobar si devolver un mensaje de error o la id encontrada.
+      return existsId === null ? { message: 'No existe la Id de Concesionario que has introducido.' } : existsId._id;
+    }
+    //Comprobamos que el indice no sea mayor a la cantidad de elementos
+    else if (results.length < parseInt(id) + 1) {
+      //En caso de que lo sea, devolvemos mensaje de error
+      return Promise.resolve({ message: 'Concesionario no encontrado' });
+    } else {
+      //En caso de que nada de lo anterior ocurra, devolvemos la id del indice encontrado.
+      return results[parseInt(id)]._id;
+    }
+  } catch (err) {
+    console.log(err);
+  } finally {
+    conn.close();
+  }
+}
+
 //Función para encontrar, por defecto busca la primera que aparezca
 async function dbFindConcesionario(search = {}) {
   const conn = new MongoClient(`${db_uri}/${db_name}`);
@@ -105,39 +138,6 @@ async function dbUpdateConcesionario(id, nombre, direccion, coches) {
   }
 }
 
-//Esta función es vital, se encarga de sacar el objectId recibiendo un indice
-async function parseObjectId(id) {
-  const conn = new MongoClient(`${db_uri}/${db_name}`);
-  
-  try {
-    const collection = conn.db().collection(collection_name);
-    
-    //Pillamos la array de elementos que tenemos
-    const results = await collection.find().toArray();
-    
-    //Validacion de la ID proporcionada
-    //Si es un objectId, comprobamos que exista
-    if (isNaN(id)) {
-      id = new ObjectId(id);
-      const existsId = await collection.findOne({ _id: id });
-      //Condicion ternaria para comprobar si devolver un mensaje de error o la id encontrada.
-      return existsId === null ? { message: 'No existe la Id de Concesionario que has introducido.' } : existsId._id;
-    }
-    //Comprobamos que el indice no sea mayor a la cantidad de elementos
-    else if (results.length < parseInt(id) + 1) {
-      //En caso de que lo sea, devolvemos mensaje de error
-      return Promise.resolve({ message: 'Concesionario not found' });
-    } else {
-      //En caso de que nada de lo anterior ocurra, devolvemos la id del indice encontrado.
-      return results[parseInt(id)]._id;
-    }
-  } catch (err) {
-    console.log(err);
-  } finally {
-    conn.close();
-  }
-}
-
 
 async function dbFindCoches(id) {
   
@@ -185,6 +185,7 @@ async function dbFindCoche(id, cocheId) {
   }
 }
 
+// Hace un paticion a la base de datos para borrar un coche.
 async function dbDeleteCoche(id, cocheId) {
   const conn = new MongoClient(`${db_uri}/${db_name}`);
   try {
@@ -209,6 +210,7 @@ async function dbDeleteCoche(id, cocheId) {
   }
 }
 
+// Inserta el coche a la base de datos
 async function dbInsertCoche(id, newCoche) {
   const conn = new MongoClient(`${db_uri}/${db_name}`);
   try {
@@ -233,6 +235,7 @@ async function dbInsertCoche(id, newCoche) {
 
 }
 
+// Actualizamos un coche
 async function dbUpdateCoche(id, cocheId, coche) {
   
   const conn = new MongoClient(`${db_uri}/${db_name}`);
@@ -256,10 +259,6 @@ async function dbUpdateCoche(id, cocheId, coche) {
     conn.close();
   }
 }
-
-//(async() => {
-//  console.log(await dbFindCoches(await parseObjectId(2)));
-//})();
 
 //Exportamos las funciones para que se puedan importar desde el otro archivo
 module.exports = {
