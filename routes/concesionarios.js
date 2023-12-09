@@ -1,16 +1,16 @@
 // Importo express y inicio un Router
 const express = require('express');
-const concesionariosRouter = express.Router();
+const router = express.Router();
 
 // Importo el controlador de los concesionarios
 const controller  = require('../controllers/concesionarios');
 
 // Cada ruta que he creado aquí lleva asignada un callback de el controlador.
-concesionariosRouter.get('/concesionarios/',controller.getConcesionarios);
-concesionariosRouter.post('/concesionarios/',controller.createConcesionario);
-concesionariosRouter.get('/concesionarios/:id/',controller.getConcesionario);
-concesionariosRouter.put('/concesionarios/:id',controller.updateConcesionario);
-concesionariosRouter.delete('/concesionarios/:id',controller.deleteConcesionario);
+router.get('/concesionarios/',controller.getConcesionarios);
+router.post('/concesionarios/',controller.createConcesionario);
+router.get('/concesionarios/:id/',controller.getConcesionario);
+router.put('/concesionarios/:id',controller.updateConcesionario);
+router.delete('/concesionarios/:id',controller.deleteConcesionario);
 
 // Exporto el router para los concesionarios
-module.exports = concesionariosRouter;
+module.exports = router;
