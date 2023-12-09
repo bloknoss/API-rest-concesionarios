@@ -6,7 +6,7 @@ const db_name = 'concesionarios';
 const collection_name = 'concesionarios';
 const db_uri = 'mongodb://127.0.0.1:27017';
 
-//Esta función es vital, se encarga de sacar el objectId recibiendo un indice
+//Esta función es vital, se encarga de sacar el objectId recibiendo un indice en caso de existir tal indice.
 async function parseObjectId(id) {
   const conn = new MongoClient(`${db_uri}/${db_name}`);
   
@@ -169,13 +169,13 @@ async function dbFindCoche(id, cocheId) {
     const filter = { _id: id };
 
     const projection = {
-      _id: 0,  // Exclude _id field from the result
+      _id: 0, 
       coche : {$arrayElemAt: ['$coches', cocheId] }  
     };
 
-    //Hacemos un update a un elemento que tenga la misma objectId que la recibida.
+    // Hacemos un update a un elemento que tenga la misma objectId que la recibida.
     const result = await collection.findOne(filter, { projection });
-    //Devolvemos los resultados
+    // Devolvemos los resultados
     return result.coche;
   } catch (err) {
     console.log('Ha ocurrido un error: ',err.message);
@@ -198,7 +198,6 @@ async function dbDeleteCoche(id, cocheId) {
 
     const update = {$set : {coches : cochesActualizados.coches}};
 
-    //Hacemos un update a un elemento que tenga la misma objectId que la recibida.
     const result = await collection.updateOne(filter, update);
 
     return result;
