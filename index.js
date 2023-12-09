@@ -49,6 +49,7 @@ app.use(cochesRouter);
 // Iniciamos el servidor
 app.listen(port, (err) => {
   console.clear();
+  // Controlamos el caso de que haya un error
   if (err) {
     console.log(`Ha ocurrido un error mientras se iniciaba el servidor\n${err.message}`);
   }
