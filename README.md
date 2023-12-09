@@ -323,9 +323,10 @@ Dependencias de [NPM](https://www.npmjs.com):
 ```json
   "dependencies": {
     "express": "^4.18.2",
+    "helmet": "^7.1.0",
     "swagger-ui-express": "^5.0.0",
     "mongodb": "6.3.0",
-    "helmet": "^7.1.0"
+    "cookie-parser": "^1.4.6"
   }
 ```
 
@@ -333,6 +334,7 @@ Dependencias de [NPM](https://www.npmjs.com):
 -   [Helmet](https://www.npmjs.com/package/helmet) - Biblioteca Middleware que aporta seguridad a la API mediante headers.
 -   [Swagger UI](https://www.npmjs.com/package/swagger-ui-express) - Modulo de Swagger UI que permite generar los API docs facilmente en Express.
 -   [MongoDB](https://www.npmjs.com/package/mongodb) - Driver de MongoDB permite crear una conexión con la base de datos.  
+-   [Cookie Parser](https://www.npmjs.com/package/cookie-parser) - Cookie Parser que añade el header de Cookies y le da un objeto con el nombre la cookie. 
 
 Dependencias de desarrollo:  
 
